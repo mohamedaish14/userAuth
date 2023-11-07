@@ -6,6 +6,8 @@ const userrouts=require('./routs/userrouts');
 const dotenv=require("dotenv");
 dotenv.config({path:'config.env'})
 const morgan=require('morgan');
+const compression=require("compression");
+const cors=require('cors');
 
 //dbconnection
 dbconnection();
@@ -17,6 +19,9 @@ if(process.env.NODE_ENV=='development'){
     app.use(morgan('dev'))
     console.log(process.env.NODE_ENV)}
 
+app.use(cors());
+app.options('*',cors());
+app.use(compression());
 
 //routes
 app.use('/api/v1/categories',categoryrouts);
