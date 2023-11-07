@@ -19,6 +19,9 @@ if(process.env.NODE_ENV=='development'){
     app.use(morgan('dev'))
     console.log(process.env.NODE_ENV)}
 
+
+
+    
 app.use(cors());
 app.options('*',cors());
 app.use(compression());
